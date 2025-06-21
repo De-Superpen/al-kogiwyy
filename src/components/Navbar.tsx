@@ -31,9 +31,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-black/30 backdrop-blur-sm'
-      }`}>
+      <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-md">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo Section */}
@@ -45,7 +43,7 @@ const Navbar = () => {
                 <div className="text-xl md:text-2xl font-playfair font-bold text-gradient-gold">
                   AL-KOGIWWYY
                 </div>
-                <div className="text-xs text-gray-300 hidden md:block">
+                <div className="text-xs text-gray-600 hidden md:block">
                   BN: 8336017
                 </div>
               </div>
@@ -60,7 +58,7 @@ const Navbar = () => {
                   className={`text-sm font-medium transition-colors hover:text-luxury-gold ${
                     location.pathname === item.path
                       ? 'text-luxury-gold'
-                      : isScrolled ? 'text-gray-700' : 'text-white'
+                      : 'text-gray-700'
                   }`}
                 >
                   {item.name}
@@ -76,7 +74,7 @@ const Navbar = () => {
                 className="relative"
                 onClick={() => setCartOpen(true)}
               >
-                <ShoppingCart className={`h-5 w-5 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                <ShoppingCart className="h-5 w-5 text-gray-700" />
                 {getItemCount() > 0 && (
                   <span className="absolute -top-2 -right-2 bg-luxury-gold text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {getItemCount()}
@@ -105,9 +103,9 @@ const Navbar = () => {
                 onClick={() => setIsOpen(!isOpen)}
               >
                 {isOpen ? (
-                  <X className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                  <X className="h-6 w-6 text-gray-700" />
                 ) : (
-                  <Menu className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                  <Menu className="h-6 w-6 text-gray-700" />
                 )}
               </Button>
             </div>
@@ -115,7 +113,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
+            <div className="md:hidden bg-white border-t border-gray-200">
               <div className="px-2 pt-2 pb-3 space-y-1">
                 <div className="px-3 py-2 text-sm text-gray-600">
                   Business Number: 8336017

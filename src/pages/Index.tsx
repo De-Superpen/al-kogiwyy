@@ -25,17 +25,17 @@ const Index = () => {
           muted
           loop
           className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop"
+          poster="https://images.unsplash.com/photo-1594736797933-d0d2355d9511?w=1920&h=1080&fit=crop"
         >
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4" />
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
         </video>
         
         {/* Fallback background image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1594736797933-d0d2355d9511?w=1920&h=1080&fit=crop)',
             zIndex: 5
           }}
         />
@@ -64,7 +64,7 @@ const Index = () => {
               asChild 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-luxury-navy font-semibold"
+              className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-luxury-navy font-semibold"
             >
               <a 
                 href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20premium%20fashion%20services"
