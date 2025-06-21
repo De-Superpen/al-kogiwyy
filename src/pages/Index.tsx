@@ -1,12 +1,170 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Star, Users, Award, Scissors } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
+import { products } from '@/data/products';
 
 const Index = () => {
+  const featuredProducts = products.slice(0, 6);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <video
+          autoPlay
+          muted
+          loop
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080" type="video/mp4" />
+        </video>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop)'
+          }}
+        />
+        
+        <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6">
+            <span className="text-gradient-gold">AL-KOGIWWYY</span>
+            <br />
+            CASUALS
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
+            Redefining luxury fashion for the modern African man with precision tailoring and cultural pride
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-luxury-gold hover:bg-luxury-gold-dark text-white font-semibold"
+            >
+              <Link to="/gallery">
+                Explore Our Styles
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button 
+              asChild 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-luxury-navy"
+            >
+              <a 
+                href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20premium%20fashion%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chat on WhatsApp
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="animate-slide-in">
+              <div className="bg-luxury-gold text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-luxury-navy mb-2">500+</h3>
+              <p className="text-gray-600">Happy Customers</p>
+            </div>
+            <div className="animate-slide-in">
+              <div className="bg-luxury-gold text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Scissors className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-luxury-navy mb-2">1000+</h3>
+              <p className="text-gray-600">Garments Tailored</p>
+            </div>
+            <div className="animate-slide-in">
+              <div className="bg-luxury-gold text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-luxury-navy mb-2">5+</h3>
+              <p className="text-gray-600">Years Experience</p>
+            </div>
+            <div className="animate-slide-in">
+              <div className="bg-luxury-gold text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-luxury-navy mb-2">100%</h3>
+              <p className="text-gray-600">Quality Guarantee</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-playfair font-bold text-luxury-navy mb-4">
+              Our Premium Collection
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover our exquisite range of handcrafted garments, each piece telling a story of African elegance and modern sophistication.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredProducts.map((product, index) => (
+              <div key={product.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button asChild size="lg" className="bg-luxury-navy hover:bg-luxury-navy-dark text-white">
+              <Link to="/gallery">
+                View All Products
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 gradient-navy text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-6">
+            Ready to Experience Luxury?
+          </h2>
+          <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
+            Join hundreds of satisfied customers who trust AL-KOGIWWYY CASUALS for their premium fashion needs.
+          </p>
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-luxury-gold hover:bg-luxury-gold-dark text-white font-semibold"
+          >
+            <a 
+              href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20ready%20to%20experience%20luxury%20fashion"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Start Your Journey
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+          </Button>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
