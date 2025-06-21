@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ScrollingAnnouncement from '@/components/ScrollingAnnouncement';
+import AgbadaCarousel from '@/components/AgbadaCarousel';
 import { products } from '@/data/products';
 
 const Index = () => {
@@ -18,27 +19,13 @@ const Index = () => {
       <ScrollingAnnouncement />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <video
-          autoPlay
-          muted
-          loop
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1594736797933-d0d2355d9511?w=1920&h=1080&fit=crop"
-        >
-          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4" />
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
-        </video>
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-luxury-navy via-luxury-navy-light to-luxury-gold">
+        <div className="absolute inset-0 bg-black/30 z-10" />
         
-        {/* Fallback background image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1594736797933-d0d2355d9511?w=1920&h=1080&fit=crop)',
-            zIndex: 5
-          }}
-        />
+        {/* 3D Agbada Carousel */}
+        <div className="absolute inset-0 z-5">
+          <AgbadaCarousel />
+        </div>
         
         <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6">

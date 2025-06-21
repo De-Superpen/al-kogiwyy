@@ -9,7 +9,14 @@ import { products } from '@/data/products';
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   
-  const categories = ['All', ...Array.from(new Set(products.map(p => p.category)))];
+  const categories = [
+    'All', 
+    'Kaftan', 
+    'Royal Agbada', 
+    'Pants/Trousers', 
+    'Senator Fabrics', 
+    'Caps'
+  ];
   
   const filteredProducts = selectedCategory === 'All' 
     ? products 
@@ -66,6 +73,7 @@ const Gallery = () => {
           {filteredProducts.length === 0 && (
             <div className="text-center py-16">
               <p className="text-xl text-gray-600">No products found in this category.</p>
+              <p className="text-sm text-gray-500 mt-2">We're working on adding more products to this category.</p>
             </div>
           )}
         </div>
