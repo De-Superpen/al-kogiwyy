@@ -15,12 +15,24 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
   const handleWhatsAppCheckout = () => {
     if (items.length === 0) return;
     
-    const itemsText = items.map(item => 
-      `${item.name} x ${item.quantity} - ₦${(item.price * item.quantity).toLocaleString()}`
-    ).join('\n');
+    // Create detailed message with all product information
+    let message = "Hello AL-KOGIWWYY CASUALS, I'm interested in purchasing the following items:\n\n";
     
+    // Add each item with full details
+    items.forEach((item, index) => {
+      message += `${index + 1}. ${item.name}\n`;
+      message += `   Category: ${item.category}\n`;
+      message += `   Quantity: ${item.quantity}\n`;
+      message += `   Unit Price: ₦${item.price.toLocaleString()}\n`;
+      message += `   Subtotal: ₦${(item.price * item.quantity).toLocaleString()}\n\n`;
+    });
+    
+    // Add total
     const total = getTotalPrice();
-    const message = `Hello AL-KOGIWWYY CASUALS, I'm interested in purchasing:\n\n${itemsText}\n\nTotal: ₦${total.toLocaleString()}\n\nPlease confirm availability and delivery details.`;
+    message += `TOTAL AMOUNT: ₦${total.toLocaleString()}\n\n`;
+    
+    // Add closing message
+    message += "Please confirm availability, delivery details, and payment methods. Looking forward to experiencing your premium fashion services!";
     
     window.open(`https://wa.me/2349022920617?text=${encodeURIComponent(message)}`, '_blank');
     clearCart();

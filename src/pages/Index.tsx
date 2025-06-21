@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Scissors } from 'lucide-react';
@@ -6,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
+import ScrollingAnnouncement from '@/components/ScrollingAnnouncement';
 import { products } from '@/data/products';
 
 const Index = () => {
@@ -14,6 +14,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <ScrollingAnnouncement />
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -23,13 +24,19 @@ const Index = () => {
           muted
           loop
           className="absolute inset-0 w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop"
         >
-          <source src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080" type="video/mp4" />
+          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+          {/* Fallback image if video fails to load */}
         </video>
+        
+        {/* Fallback background image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop)'
+            backgroundImage: 'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop)',
+            zIndex: 5
           }}
         />
         

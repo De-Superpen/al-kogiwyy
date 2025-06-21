@@ -36,10 +36,19 @@ const Navbar = () => {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="text-2xl font-playfair font-bold text-gradient-gold">
-                AL-KOGIWWYY
+            {/* Logo Section */}
+            <Link to="/" className="flex items-center space-x-3">
+              {/* Placeholder for logo - you can replace with actual logo */}
+              <div className="w-10 h-10 bg-luxury-gold rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg">AK</span>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-xl md:text-2xl font-playfair font-bold text-gradient-gold">
+                  AL-KOGIWWYY
+                </div>
+                <div className="text-xs text-gray-500 hidden md:block">
+                  BN: 8336017
+                </div>
               </div>
             </Link>
 
@@ -68,7 +77,7 @@ const Navbar = () => {
                 className="relative"
                 onClick={() => setCartOpen(true)}
               >
-                <ShoppingCart className="h-5 w-5" />
+                <ShoppingCart className={`h-5 w-5 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
                 {getItemCount() > 0 && (
                   <span className="absolute -top-2 -right-2 bg-luxury-gold text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {getItemCount()}
@@ -96,7 +105,11 @@ const Navbar = () => {
                 className="md:hidden"
                 onClick={() => setIsOpen(!isOpen)}
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {isOpen ? (
+                  <X className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                ) : (
+                  <Menu className={`h-6 w-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+                )}
               </Button>
             </div>
           </div>
@@ -105,6 +118,10 @@ const Navbar = () => {
           {isOpen && (
             <div className="md:hidden bg-white border-t">
               <div className="px-2 pt-2 pb-3 space-y-1">
+                {/* BN Number for mobile */}
+                <div className="px-3 py-2 text-sm text-gray-600">
+                  Business Number: 8336017
+                </div>
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
