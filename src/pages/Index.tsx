@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Scissors } from 'lucide-react';
@@ -18,7 +19,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
         <video
           autoPlay
           muted
@@ -26,9 +27,8 @@ const Index = () => {
           className="absolute inset-0 w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop"
         >
-          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
           <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-          {/* Fallback image if video fails to load */}
+          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
         </video>
         
         {/* Fallback background image */}
@@ -64,7 +64,7 @@ const Index = () => {
               asChild 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-luxury-navy"
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-luxury-navy font-semibold"
             >
               <a 
                 href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20premium%20fashion%20services"

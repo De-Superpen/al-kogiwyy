@@ -31,14 +31,13 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      <nav className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-black/30 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo Section */}
             <Link to="/" className="flex items-center space-x-3">
-              {/* Placeholder for logo - you can replace with actual logo */}
               <div className="w-10 h-10 bg-luxury-gold rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-lg">AK</span>
               </div>
@@ -46,7 +45,7 @@ const Navbar = () => {
                 <div className="text-xl md:text-2xl font-playfair font-bold text-gradient-gold">
                   AL-KOGIWWYY
                 </div>
-                <div className="text-xs text-gray-500 hidden md:block">
+                <div className="text-xs text-gray-300 hidden md:block">
                   BN: 8336017
                 </div>
               </div>
@@ -87,7 +86,7 @@ const Navbar = () => {
               
               <Button
                 asChild
-                className="hidden md:flex bg-green-600 hover:bg-green-700 text-white"
+                className="hidden md:flex bg-green-600 hover:bg-green-700 text-white font-medium"
               >
                 <a 
                   href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20services"
@@ -116,9 +115,8 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden bg-white border-t">
+            <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {/* BN Number for mobile */}
                 <div className="px-3 py-2 text-sm text-gray-600">
                   Business Number: 8336017
                 </div>
@@ -139,7 +137,7 @@ const Navbar = () => {
                 <div className="px-3 py-2">
                   <Button
                     asChild
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium"
                   >
                     <a 
                       href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20services"
