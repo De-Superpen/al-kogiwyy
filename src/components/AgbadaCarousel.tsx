@@ -4,16 +4,17 @@ import React, { useEffect, useState } from 'react';
 const AgbadaCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const agbadaImages = [
-    '/lovable-uploads/50a00912-6708-4590-87bc-e810907fc208.png',
-    '/lovable-uploads/7b33c970-d32f-47f7-abd2-fb1a66333edc.png',
-    '/lovable-uploads/f4702901-af6f-4861-b8e2-d030b9895e5e.png',
-    '/lovable-uploads/d40b37cc-dbc2-4fb5-aa69-39a4e115b7a7.png',
-    '/lovable-uploads/1c4ae1b7-0646-4a1a-8f31-43a03f558d9b.png',
-    '/lovable-uploads/009bee30-09a6-41f2-a52d-e50182738c89.png',
-    '/lovable-uploads/b4ed1860-3b3f-4357-9216-7e7edb3958c7.png',
-    '/lovable-uploads/bb6bd895-71c1-4744-ba41-c1cacc4c9e38.png',
-  ];
+ const agbadaImages = [
+  '/uploads/agbada1.jpg',
+  '/uploads/agbada2.jpg',
+  '/uploads/agbada5.jpg',
+  '/uploads/agbada3.jpg',
+  '/uploads/agbada4.jpg',
+  '/uploads/agbada1.jpg',
+  '/uploads/agbada2.jpg',
+  '/uploads/agbada5.jpg',
+  // Add more as needed, matching the files in your public/uploads folder
+];
 
   useEffect(() => {
     const interval = setInterval(() => {
