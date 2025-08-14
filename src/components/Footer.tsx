@@ -92,8 +92,7 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm mb-2">
-              © 2024 AL-KOGIWWYY CASUALS. All rights reserved.
-            </p>
+               © {new Date().getFullYear()} AL-KOGIWWYY CASUALS. All
             <p className="text-gray-500 text-xs">
               Developed by{' '}
               <a 
