@@ -36,7 +36,7 @@ const Index = () => {
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
             Redefining luxury fashion for the modern African man with precision tailoring and cultural pride
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-row gap-4 justify-center">
             <Button 
               asChild 
               size="lg" 

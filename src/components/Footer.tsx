@@ -92,7 +92,8 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-gray-400 text-sm mb-2">
-               © {new Date().getFullYear()} AL-KOGIWWYY CASUALS. All
+              © {new Date().getFullYear()} AL-KOGIWWYY CASUALS. All rights reserved.
+            </p>
             <p className="text-gray-500 text-xs">
               Developed by{' '}
               <a 
