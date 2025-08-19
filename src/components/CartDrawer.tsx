@@ -120,12 +120,21 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
                   ₦{getTotalPrice().toLocaleString()}
                 </span>
               </div>
-              <Button
-                onClick={handleWhatsAppCheckout}
-                className="w-full bg-green-600 hover:bg-green-700 text-white"
-              >
-                Checkout on WhatsApp
-              </Button>
+              <div className="space-y-2">
+                <Button 
+                  onClick={() => window.location.href = '/checkout'}
+                  className="w-full"
+                >
+                  Proceed to Checkout
+                </Button>
+                <Button 
+                  onClick={handleWhatsAppCheckout}
+                  variant="outline"
+                  className="w-full"
+                >
+                  Quick Order via WhatsApp
+                </Button>
+              </div>
             </div>
           )}
         </div>
