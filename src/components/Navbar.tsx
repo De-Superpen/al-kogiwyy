@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 import CartDrawer from './CartDrawer';
 
 const Navbar = () => {
@@ -12,6 +13,7 @@ const Navbar = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const location = useLocation();
   const { getItemCount } = useCart();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +68,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Cart and WhatsApp */}
+            {/* Cart and User Actions */}
             <div className="flex items-center space-x-4">
               <Button
                 variant="ghost"
@@ -82,18 +84,35 @@ const Navbar = () => {
                 )}
               </Button>
               
-              <Button
-                asChild
-                className="hidden md:flex bg-green-600 hover:bg-green-700 text-white font-medium"
-              >
-                <a 
-                  href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20services"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              {user ? (
+                <div className="hidden md:flex items-center space-x-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                  >
+                    <Link to="/profile" className="flex items-center gap-2">
+                      <User className="h-4 w-4" />
+                      {user.name}
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={logout}
+                    title="Sign out"
+                  >
+                    <LogOut className="h-4 w-4" />
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  asChild
+                  className="hidden md:flex"
                 >
-                  WhatsApp
-                </a>
-              </Button>
+                  <Link to="/auth">Sign In</Link>
+                </Button>
+              )}
 
               {/* Mobile menu button */}
               <Button
@@ -133,18 +152,38 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <div className="px-3 py-2">
-                  <Button
-                    asChild
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium"
-                  >
-                    <a 
-                      href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20services"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  {user ? (
+                    <div className="space-y-2">
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full"
+                      >
+                        <Link to="/profile" className="flex items-center gap-2">
+                          <User className="h-4 w-4" />
+                          {user.name}
+                        </Link>
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          logout();
+                          setIsOpen(false);
+                        }}
+                        variant="ghost"
+                        className="w-full flex items-center gap-2"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Sign Out
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button
+                      asChild
+                      className="w-full"
                     >
-                      WhatsApp
-                    </a>
-                  </Button>
+                      <Link to="/auth">Sign In</Link>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

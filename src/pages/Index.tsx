@@ -53,13 +53,9 @@ const Index = () => {
               variant="outline" 
               className="border-2 border-white text-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-luxury-navy font-semibold"
             >
-              <a 
-                href="https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I'm%20interested%20in%20your%20premium%20fashion%20services"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Chat on WhatsApp
-              </a>
+              <Link to="/contact">
+                Contact Us
+              </Link>
             </Button>
           </div>
         </div>

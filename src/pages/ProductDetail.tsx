@@ -52,10 +52,6 @@ const ProductDetail = () => {
     setQuantity(1);
   };
 
-  const handleWhatsAppOrder = () => {
-    const message = `Hello AL-KOGIWWYY CASUALS, I'm interested in:\n\n${product.name}\nCategory: ${product.category}\nQuantity: ${quantity}\nPrice: ₦${(product.price * quantity).toLocaleString()}\n\nPlease confirm availability and delivery details.`;
-    window.open(`https://wa.me/2349022920617?text=${encodeURIComponent(message)}`, '_blank');
-  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -170,19 +166,10 @@ const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 size="lg"
-                className="w-full bg-luxury-gold hover:bg-luxury-gold-dark text-white"
+                className="w-full"
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
                 Add to Cart
-              </Button>
-              
-              <Button
-                onClick={handleWhatsAppOrder}
-                size="lg"
-                variant="outline"
-                className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white"
-              >
-                Order via WhatsApp
               </Button>
               
               <Button
@@ -214,13 +201,9 @@ const ProductDetail = () => {
                   <a href="tel:+2349022920617">Call: +234 9022920617</a>
                 </Button>
                 <Button asChild size="sm" variant="outline">
-                  <a 
-                    href={`https://wa.me/2349022920617?text=I%20have%20questions%20about%20${encodeURIComponent(product.name)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    WhatsApp Us
-                  </a>
+                  <Link to="/contact">
+                    Contact Us
+                  </Link>
                 </Button>
               </div>
             </div>

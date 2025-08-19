@@ -12,32 +12,6 @@ interface CartDrawerProps {
 const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
   const { items, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
 
-  const handleWhatsAppCheckout = () => {
-    if (items.length === 0) return;
-    
-    // Create detailed message with all product information
-    let message = "Hello AL-KOGIWWYY CASUALS, I'm interested in purchasing the following items:\n\n";
-    
-    // Add each item with full details
-    items.forEach((item, index) => {
-      message += `${index + 1}. ${item.name}\n`;
-      message += `   Category: ${item.category}\n`;
-      message += `   Quantity: ${item.quantity}\n`;
-      message += `   Unit Price: ₦${item.price.toLocaleString()}\n`;
-      message += `   Subtotal: ₦${(item.price * item.quantity).toLocaleString()}\n\n`;
-    });
-    
-    // Add total
-    const total = getTotalPrice();
-    message += `TOTAL AMOUNT: ₦${total.toLocaleString()}\n\n`;
-    
-    // Add closing message
-    message += "Please confirm availability, delivery details, and payment methods. Looking forward to experiencing your premium fashion services!";
-    
-    window.open(`https://wa.me/2349022920617?text=${encodeURIComponent(message)}`, '_blank');
-    clearCart();
-    onClose();
-  };
 
   if (!open) return null;
 
@@ -120,21 +94,12 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ open, onClose }) => {
                   ₦{getTotalPrice().toLocaleString()}
                 </span>
               </div>
-              <div className="space-y-2">
-                <Button 
-                  onClick={() => window.location.href = '/checkout'}
-                  className="w-full"
-                >
-                  Proceed to Checkout
-                </Button>
-                <Button 
-                  onClick={handleWhatsAppCheckout}
-                  variant="outline"
-                  className="w-full"
-                >
-                  Quick Order via WhatsApp
-                </Button>
-              </div>
+              <Button 
+                onClick={() => window.location.href = '/checkout'}
+                className="w-full"
+              >
+                Proceed to Checkout
+              </Button>
             </div>
           )}
         </div>

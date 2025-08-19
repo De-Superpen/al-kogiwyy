@@ -27,9 +27,9 @@ const Contact = () => {
     },
     {
       icon: Mail,
-      title: 'WhatsApp',
-      details: 'Chat with us instantly',
-      action: 'https://wa.me/2349022920617?text=Hello%20AL-KOGIWWYY%20CASUALS,%20I%20have%20a%20question',
+      title: 'Email',
+      details: 'Send us a message',
+      action: 'mailto:info@al-kogiwwyy.com',
     },
   ];
 
