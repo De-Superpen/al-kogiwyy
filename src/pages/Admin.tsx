@@ -6,6 +6,10 @@ import { ProductManagement } from '@/components/admin/ProductManagement';
 import { OrderManagement } from '@/components/admin/OrderManagement';
 import { CustomerManagement } from '@/components/admin/CustomerManagement';
 import { DeliveryManagement } from '@/components/admin/DeliveryManagement';
+import { ReportsManagement } from '@/components/admin/ReportsManagement';
+import { ContentManagement } from '@/components/admin/ContentManagement';
+import { LocationManagement } from '@/components/admin/LocationManagement';
+import { SettingsManagement } from '@/components/admin/SettingsManagement';
 
 const Admin: React.FC = () => {
   return (
@@ -16,10 +20,10 @@ const Admin: React.FC = () => {
         <Route path="orders" element={<OrderManagement />} />
         <Route path="customers" element={<CustomerManagement />} />
         <Route path="delivery" element={<DeliveryManagement />} />
-        <Route path="reports" element={<div className="p-6">Reports coming soon...</div>} />
-        <Route path="content" element={<div className="p-6">Content management coming soon...</div>} />
-        <Route path="locations" element={<div className="p-6">Location management coming soon...</div>} />
-        <Route path="settings" element={<div className="p-6">Settings coming soon...</div>} />
+        <Route path="reports" element={<ReportsManagement />} />
+        <Route path="content" element={<ContentManagement />} />
+        <Route path="locations" element={<LocationManagement />} />
+        <Route path="settings" element={<SettingsManagement />} />
       </Route>
     </Routes>
   );

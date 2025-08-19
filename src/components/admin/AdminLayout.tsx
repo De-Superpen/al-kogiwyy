@@ -9,8 +9,10 @@ export const AdminLayout: React.FC = () => {
       <AdminHeader />
       <div className="flex">
         <AdminSidebar />
-        <main className="flex-1 p-6">
-          <Outlet />
+        <main className="flex-1 p-4 lg:p-6 lg:ml-0">
+          <div className="pt-16 lg:pt-0">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
